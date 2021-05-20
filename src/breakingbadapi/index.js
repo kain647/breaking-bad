@@ -35,25 +35,31 @@ import {
   ProfBox,
 } from "./styled";
 
-class Breakingbadapi extends React.Component {
+class BreakingBadApi extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      breaking: [],
+      data: [],
       death: {},
     };
     this.getBreakingBad();
-    //this.getDeath();
   }
 
-  getBreakingBad = async () => {
+  getData = async (category) => {
     const response = await fetch(
-      `https://www.breakingbadapi.com/api/characters`
+      `https://www.breakingbadapi.com/api/characters?category=${category}`
     ).then((response) => response.json());
     //console.log(response);
     this.setState({
-      breaking: response,
+      data: response,
     });
+  }
+
+  getBreakingBad = async () => {
+    return this.getData("Breaking+Bad")
+  };
+  getBetterCallSaul = async () => {
+    return this.getData("Better+Call+Saul")
   };
 
   getDeath = async () => {
@@ -67,7 +73,7 @@ class Breakingbadapi extends React.Component {
   };
 
   render() {
-    const { breaking, death } = this.state;
+    const { death, data } = this.state;
     //console.log({ death });
     return (
       <Container>
@@ -75,12 +81,16 @@ class Breakingbadapi extends React.Component {
           <Title>The Breaking Bad</Title>
           <Subtitle>...Tread Lightly</Subtitle>
           <Buttons>
-            <button className={"Saul"}>Better Call Saul</button>
-            <button className={"White"}>Breaking Bad</button>
+            <button className={"Saul"} onClick={this.getBetterCallSaul}>
+              Better Call Saul
+            </button>
+            <button className={"White"} onClick={this.getBreakingBad}>
+              Breaking Bad
+            </button>
           </Buttons>
         </Header>
         <Content>
-          {breaking.map((item) => {
+          {data.map((item) => {
             //console.log(item);
             return <Card {...item} />;
           })}
@@ -177,4 +187,4 @@ const Random = (props) => {
   );
 };
 
-export default Breakingbadapi;
+export default BreakingBadApi;

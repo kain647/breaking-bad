@@ -16,6 +16,7 @@ export const Header = styled.div`
 `;
 export const Title = styled.h1`
   font-weight: 700;
+	font-size: 56px;
   margin: 0;
   letter-spacing: 3px;
   margin-right: 10px;

@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Breakingbadapi from "./breakingbadapi";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import BreakingBadApi from "./breakingbadapi";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Breakingbadapi/>
+    <BreakingBadApi />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

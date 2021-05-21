@@ -1,8 +1,10 @@
 import React from "react";
+import { FaGithub } from "react-icons/fa";
 import {
   Container,
   Header,
   Title,
+  TitleRandom,
   Subtitle,
   Buttons,
   Content,
@@ -33,6 +35,8 @@ import {
   Season,
   Profession,
   ProfBox,
+  FooterContainer,
+  Footer,
 } from "./styled";
 
 class BreakingBadApi extends React.Component {
@@ -53,13 +57,13 @@ class BreakingBadApi extends React.Component {
     this.setState({
       data: response,
     });
-  }
+  };
 
   getBreakingBad = async () => {
-    return this.getData("Breaking+Bad")
+    return this.getData("Breaking+Bad");
   };
   getBetterCallSaul = async () => {
-    return this.getData("Better+Call+Saul")
+    return this.getData("Better+Call+Saul");
   };
 
   getDeath = async () => {
@@ -75,6 +79,14 @@ class BreakingBadApi extends React.Component {
   render() {
     const { death, data } = this.state;
     //console.log({ death });
+    const items = [
+      {
+        characters: "62",
+        episodes: "102",
+        quotes: "70",
+        deathCount: "271",
+      },
+    ];
     return (
       <Container>
         <Header>
@@ -97,15 +109,41 @@ class BreakingBadApi extends React.Component {
         </Content>
         <RandomCard>
           <HeaderRandom>
-            <Title>Click here to find out about a random death!</Title>
+            <TitleRandom>
+              Click here to find out about a random death!
+            </TitleRandom>
             <Button onClick={this.getDeath}>Death!</Button>
           </HeaderRandom>
           {<Random {...death} />}
         </RandomCard>
+        <FooterContainer>
+          <a
+            href="https://github.com/kain647/breaking-bad"
+            aria-label="Github link"
+            target="blank"
+          >
+            <FaGithub />
+          </a>
+          {items.map((footerInfo) => {
+            return <FooterInfo {...footerInfo} />;
+          })}
+        </FooterContainer>
       </Container>
     );
   }
 }
+
+const FooterInfo = (props) => {
+  const { characters, episodes, quotes, deathCount } = props;
+  return (
+    <Footer>
+      <p>Characters: {characters}</p>
+      <p>Episodes: {episodes}</p>
+      <p>Quotes: {quotes}</p>
+      <p>Death Count: {deathCount}</p>
+    </Footer>
+  );
+};
 
 const Card = (props) => {
   const {

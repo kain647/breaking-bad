@@ -12,7 +12,6 @@ export const Header = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  //background: #dadada;
 `;
 export const Title = styled.h1`
   font-weight: 700;
@@ -25,6 +24,12 @@ export const Title = styled.h1`
     height: auto;
   }
 `;
+export const TitleRandom = styled.h3`
+	display: flex;
+	font-weight: 700;
+	letter-spacing: 3px;
+	margin-right: 10px;
+`
 export const Subtitle = styled.p`
   display: flex;
   justify-content: flex-end;
@@ -66,7 +71,6 @@ export const CardContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 50px;
-  //padding: 30px;
 `;
 export const HeroPhoto = styled.div`
   display: flex;
@@ -92,7 +96,6 @@ export const Icon = styled.div`
   display: flex;
   width: 30px;
   height: 30px;
-  //background-image: url(${({ icon }) => icon});
   background-image: url(images/logo.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -106,7 +109,7 @@ export const DetailBox = styled.div`
   display: flex;
   box-sizing: border-box;
   width: 300px;
-  height: 350px;
+  height: 400px;
   padding: 10px;
   flex-direction: column;
   align-items: flex-start;
@@ -148,13 +151,12 @@ export const Status = styled.div`
 `;
 export const RandomCard = styled.div`
   display: flex;
+	box-sizing: border-box;
   width: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 10px;
-  //margin-bottom: 50px;
-  //background: #dadada;
+	padding: 10px;
 `;
 export const HeaderRandom = styled.div`
   display: flex;
@@ -186,10 +188,12 @@ export const LeftCard = styled.div`
   align-items: center;
   flex-direction: column;
   margin-right: 15px;
+  border-right: 1px solid #d0d0d0;
+  padding-right: 20px;
 `;
 export const RightCard = styled.div`
   display: flex;
-  width: 100%;
+  width: 320px;
   align-items: flex-start;
   word-break: break-all;
   justify-content: center;
@@ -197,10 +201,12 @@ export const RightCard = styled.div`
   span {
     font-weight: 500;
     margin-right: 10px;
+		margin-bottom: 10px;
   }
 `;
 export const Death = styled.div`
   display: flex;
+	flex-direction: column;
   margin-bottom: 10px;
 `;
 export const RandomContent = styled.div`
@@ -209,10 +215,12 @@ export const RandomContent = styled.div`
 `;
 export const Responsible = styled.div`
   display: flex;
+	flex-direction: column;
   margin-bottom: 10px;
 `;
 export const Words = styled.div`
   display: flex;
+	flex-direction: column;
 `;
 export const NameBox = styled.div`
   display: flex;
@@ -247,4 +255,33 @@ export const Profession = styled.div`
 export const ProfBox = styled.div`
   display: flex;
   flex-direction: column;
+`;
+export const FooterContainer = styled.div`
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	width: 90%;
+  justify-content: center;
+	padding: 10px;
+  border-top: 1px solid rgb(123, 123, 123);
+	svg {
+		margin-right: auto;
+		width: var(--size);
+		height: var(--size);
+		--size: 26px;
+		cursor: pointer;
+	}
+  a {
+    color: #000 !important;
+    text-decoration: none
+  }
+`;
+export const Footer = styled.div`
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	p {
+		margin-right: 10px;
+	}
 `;
